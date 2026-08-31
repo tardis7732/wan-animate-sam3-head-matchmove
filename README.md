@@ -5,16 +5,23 @@ SAM3가 잡은 **정방형 헤드 영역**만 Wan으로 처리한 뒤, 원본 �
 
 > 이 버전은 SAM3가 후반 프레임에서 얼굴을 놓치는 문제를 피하기 위해, 검증된 `00003` 트랙을 B/W 마스크 MP4로 고정해 사용합니다.
 
-## 결과 미리보기
+## 샘플 결과 — 640 × 640
 
-<table>
-  <tr>
-    <td width="50%"><b>640 × 640 Wan 처리</b><br><img src="docs/render-640-preview.png" alt="640 square render preview"></td>
-    <td width="50%"><b>720 × 720 Wan 처리</b><br><img src="docs/render-720-preview.png" alt="720 square render preview"></td>
-  </tr>
-</table>
+<p align="center">
+  <img src="docs/render-640-preview.png" width="620" alt="640 square render preview">
+</p>
 
-- [640 결과 영상 보기](renders/wan-animate-sam3-head-matchmove_frozen-sam3-mask_00003_640-square.mp4)
+[640 결과 영상 보기](renders/wan-animate-sam3-head-matchmove_frozen-sam3-mask_00003_640-square.mp4)
+
+## 해상도 설정
+
+처리 해상도는 워크플로우에서 바꿀 수 있습니다. 최종 MP4는 어느 경우에도 원본 프레임 크기로 합성됩니다.
+
+| Wan 정방형 처리 크기 | 권장 상황 |
+| --- | --- |
+| **640 × 640** | 기본 권장. 속도·안정성·얼굴 디테일의 균형이 가장 좋습니다. |
+| **720 × 720** | H200처럼 VRAM 여유가 있고 피부·헤어 디테일을 조금 더 보고 싶을 때. 처리 시간은 늘어납니다. |
+| **1024 × 1024** | 실험용. VRAM·시간 부담이 커서 짧은 클립부터 확인하는 것을 권장합니다. |
 - [720 결과 영상 보기](renders/wan-animate-sam3-head-matchmove_frozen-sam3-mask_00003_720-square.mp4)
 
 ## 고정 SAM3 마스크
@@ -22,7 +29,7 @@ SAM3가 잡은 **정방형 헤드 영역**만 Wan으로 처리한 뒤, 원본 �
 검정은 배경, 흰색은 합성·크롭에 사용할 헤드 영역입니다. 이 마스크를 고정 입력으로 두어, 영상 후반에도 헤드 위치와 스케일이 흔들리지 않게 합니다.
 
 <p align="center">
-  <img src="docs/sam3-mask-preview.png" width="640" alt="Frozen SAM3 head mask preview">
+  <img src="docs/sam3-mask-preview.png" width="620" alt="Frozen SAM3 head mask preview">
 </p>
 
 - [B/W 마스크 MP4 보기](masks/sam3-head-mask_00003.mp4)
